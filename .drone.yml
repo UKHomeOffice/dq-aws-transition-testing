@@ -1,0 +1,23 @@
+pipeline:
+
+  init:
+    image: hashicorp/terraform:light
+    commands:
+      - terraform init
+
+#  validate:
+#    image: hashicorp/terraform:light
+#    commands:
+#      - terraform validate
+
+  plan:
+    image: hashicorp/terraform:light
+    commands:
+      - terraform plan
+
+  apply:
+    image: hashicorp/terraform:light
+    commands:
+      - terraform apply
+    when:
+      branch: master
