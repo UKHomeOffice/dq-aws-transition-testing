@@ -4,3 +4,9 @@
 
 # Module directory
 .terraform/
+
+# Gemfile
+Gemfile.lock
+
+# Coverage Reporting
+coverage
