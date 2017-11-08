@@ -1,0 +1,12 @@
+# Compiled files
+*.tfstate
+*.tfstate.backup
+
+# Module directory
+.terraform/
+
+# Gemfile
+Gemfile.lock
+
+# Coverage Reporting
+coverage

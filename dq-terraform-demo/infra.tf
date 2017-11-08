@@ -49,6 +49,7 @@ resource "aws_instance" "linux" {
     "allow_http"]
 }
 
+
 resource "aws_instance" "windows" {
   instance_type = "t2.micro"
   ami = "${data.aws_ami.packer_win_demo.id}"

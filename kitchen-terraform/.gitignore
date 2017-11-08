@@ -1,0 +1,9 @@
+# Gemfile
+Gemfile.lock
+
+# Kitchen Config & Logs
+.kitchen.yml
+.kitchen/
+
+# Var Values
+testing.tfvars
