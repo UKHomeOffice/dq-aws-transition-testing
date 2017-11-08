@@ -4,6 +4,11 @@ Exploring testing for Terraform. Using the [dq-terraform-demo](https://github.co
 
 ## Potential Tools
 
-* For unit testing - RSpec
-* For integration testing - [Kitchen Terraform](https://github.com/newcontext-oss/kitchen-terraform) / Test Kitchen
-* [AWS Spec](https://github.com/k1LoW/awspec)
+Unit Testing:
+* [RSpec](https://github.com/rspec/rspec)
+
+Integration Testing:
+* [Kitchen Terraform](https://github.com/newcontext-oss/kitchen-terraform) / [Test Kitchen](https://github.com/test-kitchen/test-kitchen)
+
+Testing AWS:
+* [AWS Spec](https://github.com/k1LoW/awspec) / [Cloud Watch](http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-cloudwatch-new.html)

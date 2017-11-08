@@ -1,0 +1,33 @@
+driver:
+  name: driver_name
+
+provisioner:
+  name: provisioner_name
+
+verifier:
+  name: verifier_name
+
+transport:
+  name: transport_name
+
+platforms:
+  - name: platform-version
+    driver:
+      name: driver_name
+  - name: platform-version
+
+suites:
+  - name: suite_name
+    run_list:
+      - recipe[cookbook_name::recipe_name]
+    attributes: { foo: "bar" }
+    excludes:
+      - platform-version
+  - name: suite_name
+    driver:
+      name: driver_name
+    run_list:
+      - recipe[cookbook_name::recipe_name]
+    attributes: { foo: "bar" }
+    includes:
+      - platform-version

@@ -8,9 +8,11 @@ group :linters do
 end
 
 group :test do
+  gem 'test-kitchen'
   gem 'kitchen-terraform', '~> 2.0'
   gem 'rspec'
   gem 'simplecov'
   gem 'simplecov-console'
+  # awspec potentially unstable
   gem 'awspec'
 end
