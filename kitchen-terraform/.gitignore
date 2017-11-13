@@ -1,9 +1,18 @@
 # Gemfile
 Gemfile.lock
 
-# Kitchen Config & Logs
-.kitchen.yml
-.kitchen/
+# Terraform Var Values
+*.tfvars
 
-# Var Values
-testing.tfvars
+# Keys
+example-key1
+example-key1.pub
+
+# Terraform Compiled Files
+*.tfstate
+*.tfstate.backup
+
+
+# Module directory
+.terraform/
+.kitchen/

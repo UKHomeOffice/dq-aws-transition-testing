@@ -1,7 +1,7 @@
 driver:
   name: terraform
   variable_files:
-    - testing.tfvars
+    - terraform.tfvars
 
 provisioner:
   name: terraform
@@ -11,7 +11,7 @@ platforms:
 
 transport:
   name: ssh
-  ssh_key: "${var.ssh_key}"
+  ssh_key: "example-key1"
 
 verifier:
   name: terraform

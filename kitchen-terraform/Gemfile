@@ -1,0 +1,8 @@
+source 'https://rubygems.org'
+
+ruby '2.4.1'
+
+group :kitchen do
+  gem 'test-kitchen'
+  gem 'kitchen-terraform', '~> 2.0'
+end
