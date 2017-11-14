@@ -1,0 +1,17 @@
+# Gemfile
+Gemfile.lock
+
+# Terraform Var Values
+*.tfvars
+
+# Keys
+example-key
+example-key.pub
+
+# Terraform Compiled Files
+*.tfstate
+*.tfstate.backup
+
+# Module directory
+.terraform/
+.kitchen/
