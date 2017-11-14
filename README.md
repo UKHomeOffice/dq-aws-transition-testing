@@ -6,11 +6,11 @@ Exploring testing for Terraform. Using the [dq-terraform-demo](https://github.co
 
 With testing frameworks scarce for Terraform, I have included an explanation of the Terraform subcommand ```plan``` which could prove useful for testing.
 
-## Proposed Testing Frameworks
+## Potential Testing Frameworks
 
 **Unit Testing Frameworks:**
 
-* Parse Terraform script and use [RSpec](https://github.com/rspec/rspec), with [SimpleCov](https://github.com/colszowka/simplecov) to check code coverage.
+* Parse HCL script and use [RSpec](https://github.com/rspec/rspec), with [SimpleCov](https://github.com/colszowka/simplecov) to check code coverage
 * Parse JSON script (Terraform supports reading JSON) and then test
 * [Terraform Validate](https://github.com/elmundio87/terraform_validate)
 
@@ -37,10 +37,11 @@ Negatives: slow feedback loops, potentially costly having to mirror entire infra
 * [Serverspec](https://github.com/mizzy/serverspec)
 
 
-## Resources
+## Resources Used
 
 * [Top 3 Terraform Testing Strategies...](https://www.contino.io/insights/top-3-terraform-testing-strategies-for-ultra-reliable-infrastructure-as-code)
 * [Terraform - Up and Running...](https://www.amazon.co.uk/Terraform-Running-Writing-Infrastructure-Code/dp/1491977086)
+* [Infrastructure Automation with Terraform](https://www.udemy.com/learn-devops-infrastructure-automation-with-terraform/?couponCode=TERRAFORM_YTB)
 * [Verify AWS Infrastructure...](http://ec2dream.blogspot.co.uk/2017/01/verify-aws-infrastructure-with-test.html)
 * [AWS Documentation](https://aws.amazon.com/documentation/)
 * [Cloud Watch](http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-cloudwatch-new.html)
