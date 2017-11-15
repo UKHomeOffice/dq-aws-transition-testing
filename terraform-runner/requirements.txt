@@ -1,0 +1,14 @@
+# Linters
+coverage
+
+# Testing
+pyUnit
+
+# App
+subprocess
+json
+pprint
+sys
+os
+shutil
+subprocess

@@ -1,0 +1,15 @@
+# Terraform Var Values
+*.tfvars
+
+# Terraform Compiled Files
+*.tfstate
+*.tfstate.backup
+
+# Module directory
+.terraform/
+
+# Coverage Compiled Files
+.coverage
+
+# Notes
+notes.md

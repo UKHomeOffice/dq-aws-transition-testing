@@ -1,0 +1,34 @@
+{
+    "aws_instance.foo": {
+        "ami": "foo",
+        "associate_public_ip_address": "",
+        "availability_zone": "",
+        "destroy": false,
+        "destroy_tainted": false,
+        "ebs_block_device.#": "",
+        "ephemeral_block_device.#": "",
+        "id": "",
+        "instance_state": "",
+        "instance_type": "t2.micro",
+        "ipv6_address_count": "",
+        "ipv6_addresses.#": "",
+        "key_name": "",
+        "network_interface.#": "",
+        "network_interface_id": "",
+        "placement_group": "",
+        "primary_network_interface_id": "",
+        "private_dns": "",
+        "private_ip": "",
+        "public_dns": "",
+        "public_ip": "",
+        "root_block_device.#": "",
+        "security_groups.#": "",
+        "source_dest_check": "true",
+        "subnet_id": "",
+        "tenancy": "",
+        "volume_tags.%": "",
+        "vpc_security_group_ids.#": ""
+    },
+    "destroy": false
+}
+
