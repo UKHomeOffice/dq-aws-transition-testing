@@ -50,7 +50,7 @@ class Runner(object):
         self.result = result
 
     def snippet_to_json(self):
-        json_parser = subprocess.check_output(['/Users/ottern/go/bin/tfjson', './.tmp/mytf.tfplan'])
+        json_parser = subprocess.check_output(['tfjson', './.tmp/mytf.tfplan'])
         return json.loads(json_parser)
 
     # @staticmethod
