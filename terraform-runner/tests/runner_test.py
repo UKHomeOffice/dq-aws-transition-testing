@@ -19,7 +19,7 @@ class TestRunnerMethods(unittest.TestCase):
         os_mock.assert_called_once_with("./.tmp")
 
 
-class TestE2E(unittest.TestCase):
+class TestE2E(unittest.TestCase): # pragma: no cover
     def test_the_full_e2e(self):
         snippet = """
 provider "aws" {
