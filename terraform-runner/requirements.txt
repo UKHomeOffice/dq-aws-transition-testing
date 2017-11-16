@@ -2,14 +2,6 @@
 pylint
 
 # Testing
-pyUnit
 coverage
 
 # App
-subprocess
-json
-pprint
-sys
-os
-shutil
-subprocess
