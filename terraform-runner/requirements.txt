@@ -1,8 +1,9 @@
 # Linters
-coverage
+pylint
 
 # Testing
 pyUnit
+coverage
 
 # App
 subprocess

@@ -1,6 +1,5 @@
 # go get github.com/wybczu/tfjson
 import json
-from pprint import pprint
 import sys
 import os
 import shutil
@@ -11,39 +10,58 @@ class Runner(object):
     'Terraform converter, converting .tf files into JSON and Python'
     def __init__(self, snippet):
         self.snippet = snippet
+        self.run()
 
-    def setup(self):
+    # @classmethod
+    # def setup(cls):
+        # Add other file creations
+        #
+
+    def _removeTmpDir(self):
+        # if dir exists
         shutil.rmtree("./.tmp")
+
+    def _mkTmpDir(self):
         os.mkdir("./.tmp")
+
+    def _teraform_init(self):
         call(["terraform", "init", ".tmp"])
+
+    def _copy_in_fixtures(self):
         call(["cp", "vars.tf", "./.tmp"])
         call(["cp", "terraform.tfvars", "./.tmp"])
+
+    def _write_test_tf(self):
         fh = open("./.tmp/mytf.tf","w")
-        fh.write(snippet)
+        fh.write(self.snippet)
         fh.close()
-        # Add other file creations
-        os.system("terraform plan -out=./.tmp/mytf.tfstate ./.tmp ")
+
+    def _teraform_plan(self):
+        os.system("terraform plan -out=./.tmp/mytf.tfplan ./.tmp ")
+
+    def run(self):
+        # self._removeTmpDir()
+        # self._mkTmpDir()
+        # self._teraform_init()
+        # self._copy_in_fixtures()
+        # self._write_test_tf()
+        # self._teraform_plan()
+        result = self.snippet_to_json()
+        self.result = result
 
     def snippet_to_json(self):
-        # Parsing
-        parse = subprocess.Popen(['/Users/ottern/go/bin/tfjson', './.tmp/mytf.tfstate'],
-                            stdout=subprocess.PIPE).stdout.read()
-        # Saving to file
-        fjs = open("./.tmp/myjson.json","w")
-        print(parse)
-        print >>fjs, parse
-        fjs.close()
+        json_parser = subprocess.check_output(['/Users/ottern/go/bin/tfjson', './.tmp/mytf.tfplan'])
+        return json.loads(json_parser)
 
-    def json_to_py(self):
-        # Parsing
-        with open('./.tmp/myjson.json') as myjson:
-            data = json.load(myjson)
-
-        # Saving to file and prettifying
-        fpy = open("./.tmp/mypy.py", "w")
-        pprint(data, stream=fpy)
-        fpy.close()
-
+    # @staticmethod
+    # def json_to_py(self):
+    #     # Parsing
+    #     fjs = open("./.tmp/myjson.json", "r")
+    #     fpy = open("./.tmp/mypy.py", "w")
+    #     parse = json.load(fjs)
+    #
+    #     with open("./.tmp/mypy.py", "w") as fpy:
+    #         print(json.dump(parse, fpy))
 
 snippet = """
 provider "aws" {
@@ -58,7 +76,7 @@ resource "aws_instance" "foo" {
 }
 """
 
-runner = Runner(snippet)
-runner.setup()
-runner.snippet_to_json()
-runner.json_to_py()
+# runner = Runner(snippet)
+# runner.setup()
+# runner.snippet_to_json(runner)
+# runner.json_to_py(runner)
