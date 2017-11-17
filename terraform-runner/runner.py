@@ -12,17 +12,14 @@ class Runner(object):
         self.snippet = snippet
         self.run()
 
-    # @classmethod
-    # def setup(cls):
-        # Add other file creations
-        #
-
     def _removeTmpDir(self):
         # if dir exists
         shutil.rmtree("./.tmp")
 
     def _mkTmpDir(self):
         os.mkdir("./.tmp")
+        self.tmpdir = tempfile.mkdtemp()
+        print(self.tmpdir)
 
     def _teraform_init(self):
         call(["terraform", "init", ".tmp"])
@@ -40,12 +37,6 @@ class Runner(object):
         os.system("terraform plan -out=./.tmp/mytf.tfplan ./.tmp ")
 
     def run(self):
-        # self._removeTmpDir()
-        # self._mkTmpDir()
-        # self._teraform_init()
-        # self._copy_in_fixtures()
-        # self._write_test_tf()
-        # self._teraform_plan()
         result = self.snippet_to_json()
         self.result = result
 
@@ -53,15 +44,6 @@ class Runner(object):
         json_parser = subprocess.check_output(['tfjson', './.tmp/mytf.tfplan'])
         return json.loads(json_parser)
 
-    # @staticmethod
-    # def json_to_py(self):
-    #     # Parsing
-    #     fjs = open("./.tmp/myjson.json", "r")
-    #     fpy = open("./.tmp/mypy.py", "w")
-    #     parse = json.load(fjs)
-    #
-    #     with open("./.tmp/mypy.py", "w") as fpy:
-    #         print(json.dump(parse, fpy))
 
 snippet = """
 provider "aws" {
@@ -76,7 +58,3 @@ resource "aws_instance" "foo" {
 }
 """
 
-# runner = Runner(snippet)
-# runner.setup()
-# runner.snippet_to_json(runner)
-# runner.json_to_py(runner)
