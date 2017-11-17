@@ -4,7 +4,6 @@ import sys
 import os
 import shutil
 import subprocess
-from subprocess import call
 
 class Runner(object):
     'Terraform converter, converting .tf files into JSON and Python'
@@ -21,12 +20,12 @@ class Runner(object):
         self.tmpdir = tempfile.mkdtemp()
         print(self.tmpdir)
 
-    def _teraform_init(self):
-        call(["terraform", "init", ".tmp"])
+    def _terraform_init(self):
+        subprocess.call(["terraform", "init", ".tmp"])
 
     def _copy_in_fixtures(self):
-        call(["cp", "vars.tf", "./.tmp"])
-        call(["cp", "terraform.tfvars", "./.tmp"])
+        subprocess.call(["cp", "vars.tf", "./.tmp"])
+        subprocess.call(["cp", "terraform.tfvars", "./.tmp"])
 
     def _write_test_tf(self):
         fh = open("./.tmp/mytf.tf","w")
@@ -37,12 +36,16 @@ class Runner(object):
         os.system("terraform plan -out=./.tmp/mytf.tfplan ./.tmp ")
 
     def run(self):
-        result = self.snippet_to_json()
+        json = self.snippet_to_json()
+        result = self.json_to_dict(json)
         self.result = result
 
     def snippet_to_json(self):
-        json_parser = subprocess.check_output(['tfjson', './.tmp/mytf.tfplan'])
-        return json.loads(json_parser)
+        return subprocess.check_output(['tfjson', './.tmp/mytf.tfplan'])
+
+    def json_to_dict(self, json_file):
+        return json.loads(json_file)
+
 
 
 snippet = """
