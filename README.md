@@ -4,10 +4,6 @@ Exploring testing for Terraform. Using the [dq-terraform-demo](https://github.co
 
 Based on the findings below, we pursued the route of parsing Terrafom script ouputted by the ```plan``` command into Python. The repo for this tool can be found here: [tf-testrunner](https://github.com/UKHomeOffice/tf-testrunner).
 
-*Note:*<br>
-
-With testing frameworks scarce for Terraform, I have included an explanation of the Terraform subcommand ```plan``` which could prove useful for testing.
-
 ## Potential Testing Frameworks
 
 **Unit Testing Frameworks:**
