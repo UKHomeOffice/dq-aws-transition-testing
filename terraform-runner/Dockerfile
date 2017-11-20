@@ -3,10 +3,12 @@ FROM golang:1 as tfjson
 RUN go get github.com/wybczu/tfjson
 RUN CGO_ENABLED=0 GOOS=linux go build -a -ldflags '-extldflags "-static"' github.com/wybczu/tfjson
 
-# python test runner
+## build our app in python
 FROM python:3-slim
 
 COPY --from=tfjson /go/tfjson /usr/local/bin
+COPY --from=hashicorp/terraform /bin/terraform /usr/local/bin
+
 WORKDIR /app
 
 COPY requirements.txt .
