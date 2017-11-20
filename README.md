@@ -2,6 +2,8 @@
 
 Exploring testing for Terraform. Using the [dq-terraform-demo](https://github.com/UKHomeOffice/dq-terraform-demo) code as a starting point to test. Focusing on the acceptance criteria of the [mock application](https://github.com/UKHomeOffice/dq-aws-transition/issues/38) and the AWS status check criteria.
 
+Based on the findings below, we pursued the route of parsing Terrafom script ouputted by the ```plan``` command into Python. The repo for this tool can be found here: [tf-testrunner](https://github.com/UKHomeOffice/tf-testrunner).
+
 *Note:*<br>
 
 With testing frameworks scarce for Terraform, I have included an explanation of the Terraform subcommand ```plan``` which could prove useful for testing.
